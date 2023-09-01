@@ -26,7 +26,7 @@ namespace WebProjeto.Models
 
         [Display(Name = "Email")]
         [Required(ErrorMessage = "Por favor, preencha o campo Email")]
-        [RegularExpression("@\"\\w+([-+.']\\w+)*@\\w+([-.]\\w+)*\\.\\w+([-.]\\w+)*\"")]   
+        [RegularExpression(@"\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*")]   
         public string email { get; set; }
 
         [Display(Name = "Endereço")]
@@ -41,7 +41,8 @@ namespace WebProjeto.Models
 
         [Display(Name = "Data de Nascimento")]
         [Required(ErrorMessage = "Por favor, preencha o campo Data de Nascimento")]
-        [DisplayFormat(DataFormatString = "{0:dd/mm/aaaa}")]
+        [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:dd/mm/yyyy}", ApplyFormatInEditMode = true)]
         public DateTime dataNasc { get; set; }
     }
 }
